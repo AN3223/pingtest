@@ -2,7 +2,7 @@ from multiping import MultiPing
 from pandas import DataFrame, read_pickle, datetime
 from time import sleep
 
-IPS = ["8.8.8.8", "1.1.1.1", "127.0.0.1"]
+IPS = ["8.8.8.8", "1.1.1.1", "127.0.0.1", "192.168.1.1"]
 PICKLE_PATH = "ping_stats.pkl.zip"
 TIMEOUT = 10
 INTERVAL_SECONDS = 1
