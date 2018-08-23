@@ -5,7 +5,7 @@ from time import sleep
 IPS = ["8.8.8.8", "1.1.1.1", "127.0.0.1"]
 PICKLE_PATH = "ping_stats.pkl.zip"
 TIMEOUT = 10
-SECONDS = 1
+INTERVAL_SECONDS = 1
 try:
     df = read_pickle(PICKLE_PATH)
 except FileNotFoundError:
@@ -20,7 +20,7 @@ def ping(ips, timeout):
 
 while True:
     success, fail = ping(IPS, TIMEOUT)
-    
+
     df = df.append(
         DataFrame(
             {k: [v] for k, v in success.items()},
@@ -30,4 +30,4 @@ while True:
     )
 
     df.to_pickle(PICKLE_PATH)
-    sleep(SECONDS)
+    sleep(INTERVAL_SECONDS)
