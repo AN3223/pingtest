@@ -9,7 +9,7 @@ INTERVAL_SECONDS = 1
 try:
     df = read_pickle(PICKLE_PATH)
 except FileNotFoundError:
-    df = DataFrame({k: [] for k in IPS})
+    df = DataFrame(columns=IPS)
 
 
 def ping(ips, timeout):
