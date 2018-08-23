@@ -20,14 +20,11 @@ def ping(ips, timeout):
 
 while True:
     success, fail = ping(IPS, TIMEOUT)
-
-    df = df.append(
-        DataFrame(
+    pingdata = DataFrame(
             {k: [v] for k, v in success.items()},
             index=[datetime.now()]
-        ),
-        sort=True
     )
-
+    print(pingdata)
+    df = df.append(pingdata, sort=True)
     df.to_pickle(PICKLE_PATH)
     sleep(INTERVAL_SECONDS)
